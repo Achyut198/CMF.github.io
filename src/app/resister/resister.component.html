@@ -1,0 +1,64 @@
+<app-nav></app-nav>
+<div style="background-image: url('https://media.giphy.com/media/fSRQtBAzrPokPCItuu/giphy.gif');
+background-size: cover; height:100%;width: 100%; padding-top:80px;">
+  <div class="container mt-4"  >
+    <div class="card mt-4 shadow" style="background-image: url('https://media.giphy.com/media/1H8sdPP3JDAR5iY0Yv/giphy.gif');
+    background-size: cover; height:700px;width: 40%; padding-top:80px;padding-bottom:50px;"  >
+    <div class="=card mt-4 shadow">
+        <div class="card-header bg-primary text-white">
+            <h2><strong> Resistration form</strong></h2>
+        </div>
+    </div>
+    <div class="=card-body">
+        <form action="" #regForm="ngForm" (ngSubmit)="onSubmit()">
+            <!-- {{ regForm.value | json }}<br/>
+            {{ user |json }} -->
+            <div [class]="isError? 'alert alert-danger':'d-none'"class="my-4">{{message}}</div>
+            <div [class]="isSucess? 'alert alert-danger':'d-none'"class="my-4">{{message}}</div>
+            <div class="form-group mt-2">
+                <input class="form-control" minlength="4"  [class.is-invalid]=" fname.touched && fname.errors"  [class.is-valid]="fname.valid && fname.touched" required #fname="ngModel" type="text" placeholder="Full Name" name="fullName" [(ngModel)]=user.fullName>
+            </div>
+            <div *ngIf="fname.errors && fname.touched">
+                <h6 class="text-danger" *ngIf="fname.errors.required">fullname is required </h6>
+            </div>
+
+            
+            <div class="form-group mt-2">
+                <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control"   [class.is-invalid]="femail.errors && femail.touched" [class.is-valid]="femail.valid && femail.touched" required #femail="ngModel"  type="text" placeholder="Email" name="email" [(ngModel)]=user.email>
+            </div>
+            <div *ngIf="femail.errors && femail.touched">
+                <h6 class="text-danger" *ngIf="femail.errors.required ">enter an valid email id</h6>
+            </div>
+            
+            
+            <div class="form-group mt-2">
+                <input class="form-control" minlength="4"  [class.is-invalid]="psdw.errors && psdw.touched"  [class.is-valid]="psdw.valid && psdw.touched" required #psdw="ngModel" type="password" placeholder="password" name="password" [(ngModel)]=user.password>
+
+                <div *ngIf="psdw.errors && psdw.touched">
+                    <h6 class="text-danger" *ngIf="psdw.errors.required">password  is required and minimun no character is four</h6>
+                </div>
+
+                
+                <input class="form-control" minlength="4"  [class.is-invalid]="cpsdw.errors && cpsdw.touched"  [class.is-valid]="cpsdw.valid && cpsdw.touched" required #cpsdw="ngModel" type="password" placeholder="confirm password" name="confirmPassword" [(ngModel)]=user.confirmPassword>
+
+                <div *ngIf="cpsdw.errors && cpsdw.touched">
+                    <h6 class="text-danger" *ngIf="cpsdw.errors.required">confirm password  is required </h6>
+                    <!-- <div *ngIf="cpsdw.errors.confirmedValidator">Password and Confirm Password must be match.</div> -->
+
+                </div>
+
+
+                
+            </div>
+            
+            
+            <button type="submit" class="btn btn-primary mt-2" [disabled]="regForm.form.invalid">resister</button>
+            
+        </form>
+    </div>
+</div>
+
+
+</div>
+
+  </div>

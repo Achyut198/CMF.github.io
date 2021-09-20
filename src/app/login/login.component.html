@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+<div style="background-image: url('https://media.giphy.com/media/fSRQtBAzrPokPCItuu/giphy.gif');
+background-size: cover; height: 1200px;;width: 100%; padding-top:80px;">
+  <div class="container mt-4"  >
+    <div class="card mt-4 shadow" style="background-image: url('https://media.giphy.com/media/1H8sdPP3JDAR5iY0Yv/giphy.gif');
+    background-size: cover; height:600px;width: 40%; padding-top:80px;padding-bottom:50px;"  >
+<div class="=card">
+<div class="card-header">
+    <h2><strong> login form</strong></h2>
+</div>
+</div>
+<div class="card-body">
+<form action="" #regForm="ngForm" (ngSubmit)="onlogin()">
+    <div [class]="isError? 'alert alert-danger':'d-none'"class="my-4">{{message}}</div>
+    <div [class]="isSucess? 'alert alert-danger':'d-none'"class="my-4">{{message}}</div>
+    
+    <div class="form-group mt-2">
+        <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control"   [class.is-invalid]="femail.invalid && femail.touched" [class.is-valid]="femail.valid && femail.touched" required #femail="ngModel"  type="text" placeholder="Email" name="email" [(ngModel)]=email>
+    </div>
+    <h6 class="text-danger" *ngIf="femail.invalid && femail.touched">enter an valid email id</h6>
+   
+    <div class="form-group mt-2">
+        <input class="form-control" minlength="4"  [class.is-invalid]="psdw.invalid && psdw.touched"  [class.is-valid]="psdw.valid && psdw.touched" required #psdw="ngModel" type="password" placeholder="password" name="password" [(ngModel)]=password>
+        <h6 class="text-danger" *ngIf="psdw.invalid && psdw.touched">correct password  is required to login</h6>
+        
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary mt-2">login</button>
+    
+</form>
+</div>
+</div>
+
+
+</div>
+
+  </div>

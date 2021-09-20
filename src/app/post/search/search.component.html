@@ -1,0 +1,64 @@
+<app-nav></app-nav>
+<div style="background-image: url('https://i.pinimg.com/originals/30/2b/df/302bdf53ac8fb5022480fd2fe37f1904.gif');
+background-size: cover; height:1000px;width: 100%; padding-top:80px;">
+
+    
+<div class="container mt-4">
+    <div class="=row mt-4">
+        <div class="col mt-12">
+            <div class="form-inline my-2 my-lg-0">
+                <!-- <button class="btn btn-secondary" type="button">Login/Sign Up</button> -->
+               <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" name="name" [(ngModel)]="name"  >
+               <a   [routerLink]="['/post/search/', name]"    class="btn btn-primary" >Search</a> -->
+               <div class="col-12 text-end"><a class="col-12 text-align" routerLink="/post/list" class="btn btn-warning">back</a> &nbsp;&nbsp;</div>
+           </div>
+            <div *ngIf="contactsData.length==0" class="text-white">
+                        <strong><h1>No Contacts Found</h1></strong>
+                    </div>
+           
+             <div class="card shadow" *ngFor="let cont of contactsData"> 
+               
+                  <div class="card-header bg-primary text-white ">
+                    <div *ngIf="contactsData.length==0">
+                        <strong><h1>No Contacts Found</h1></strong>
+                    </div>
+                      <h3>{{cont.name}}</h3>
+                  </div>
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-12 bg-info text-white">
+                              <div class="row">
+                                <div class="col-6">{{cont.email}}</div>
+                                <div class="col-6 text-end">{{cont.phone}}</div>
+                                <!-- <div class= "cont-image text-end">  
+                                    <img [src]= "cont.imagePath" [alt]= "cont.title">  
+                                  </div>   -->
+                                <!-- <div class="col-6 text-end">{{cont._id}}</div> -->
+                              </div>
+                            
+                          </div>
+                          
+                      </div>
+                      <div class="row">
+                          <div class="col-12">
+                              {{cont.type}}
+                          </div>
+                          <div class="col-12 text-end">
+                                <a routerLink="/post/edit/{{cont._id}}" class="btn btn-warning">edit</a> &nbsp;&nbsp;
+                                <a routerLink="" class="btn btn-danger" (click)="onDelete(cont)">delete</a> &nbsp;&nbsp;
+                          </div>
+                          
+                      </div>
+                    
+                  </div>
+                  
+             </div>
+            
+             
+             
+        </div>
+        
+    </div>
+</div> 
+
+</div>

@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1B2631;
+}
+.end{
+    font-size: 400px;
+    color: #fff;
+}
